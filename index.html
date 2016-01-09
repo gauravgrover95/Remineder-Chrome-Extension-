@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css" href="materialize.css">
+<style type="text/css">
+
+	h4 {
+		text-align: center;
+	}	
+	.container {
+		height: 430px;
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 30px;
+		/*background: red;*/
+		border: 1px solid black;
+		padding: 10px;
+		margin: 10px;
+	}
+
+	.container h2 {
+		text-align: center;
+	}
+
+</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+<h4>Reminder App!!</h4>
+
+<div class="container">
+
+<br>
+   <div class="input-field col s6">
+	  <input id="contact" type="text" class="validate" placeholder = "Contact">
+	</div>
+<br>
+	Select a date:
+  <input type="date" class="datepicker">
+   Select a time:
+  <input type="time" name="usr_time">
+  Write a message:
+  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+  <a class="waves-effect waves-light btn">Add Reminder</a>
+
+</div>  <!--container end-->
+</div>  <!--wrapper end-->
+
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="materialize.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
+

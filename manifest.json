@@ -1,0 +1,13 @@
+{
+	"manifest_version": 2,
+	"name": "Reminder",
+	"version": "0.0.1",
+	"description": "",
+	"browser_action": {
+		"default_popup": "index.html"
+	},
+	"permissions": [
+		"http://localhost/*",
+		"notifications"
+	]
+}
