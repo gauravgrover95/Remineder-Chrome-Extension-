@@ -19,7 +19,7 @@ $("a").on("click", function() {
 var contact = $("#contact").val();
 
 // window.open("http://localhost","_blank");
-$.post( "http://localhost/reminder/reminder.php",function(data) {
+$.post( "http://localhost/reminder/reminder.php", {contact: contact}, function(data) {
 
 	console.log("we reached post function");
 	alert(data);
