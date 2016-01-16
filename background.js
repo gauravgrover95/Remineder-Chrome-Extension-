@@ -1,4 +1,10 @@
-var jquery = require();
+// var jquery = require();
+
+
+chrome.runtime.onMessage.addListener(function(response, sender, sendResponse) {
+
+// alert(response.delay);
+
 
 console.log("Hi Gaurav!!");
 	var die = document.createElement('audio');
@@ -7,14 +13,10 @@ console.log("Hi Gaurav!!");
 
 
 chrome.alarms.create("MyAlarm", {
-	"when": Date.now() + 2000
+	"when": Date.now() + (response.delay * 1000 * 60)
 });
 
 chrome.alarms.onAlarm.addListener(function( alarm ) {
- 
-
-
-
 
 	if( alarm.name == "MyAlarm") {
   console.log("Got an alarm!", alarm);
@@ -22,8 +24,8 @@ chrome.alarms.onAlarm.addListener(function( alarm ) {
 
 	var options = {
 		type: "basic",
-		title: "My first popup with Chrome!",
-		message: "This is my messagee",
+		title: response.title,
+		message: response.desc,
 		iconUrl: "favicon.ico", 
 		buttons: [
 			{
@@ -47,5 +49,13 @@ chrome.notifications.onButtonClicked.addListener(function() {
 
 		die.pause();
 	});
+
+});
+
+
+
+
+
+
 
 });

@@ -2,86 +2,22 @@
 
 $("#set").on("click", function() {
 
-var delay = $("#delay-input").val();
-var title = $("#title").val();
-var desc = $("#desc").val();
-
-// console.log("value of delay is: " + delay);
-// console.log(desc);
-
-	var die = document.createElement('audio');
-        die.setAttribute('src', 'die.mp3');
-
-
-
-chrome.alarms.create("MyAlarm", {
-	"when": Date.now() + (delay * 1000)
-});
-
-chrome.alarms.onAlarm.addListener(function( alarm ) {
- 
 
 
 
 
-	if( alarm.name == "MyAlarm") {
-  console.log("Got an alarm!", alarm);
+var obj = {
 
-
-	var options = {
-		type: "basic",
-		title: title,
-		message: desc,
-		iconUrl: "favicon.ico"
-	}
-
-
-	function callback() {
-		console.log("Popup Done!");
-	}
-
-	chrome.notifications.create(options, callback);
-
-
-
-    die.play();
-
-
+delay : $("#delay-input").val(),
+title : $("#title").val(),
+desc : $("#desc").val()
 
 }
 
 
+chrome.runtime.sendMessage(obj);
 
-
-});
-
-
-
-$("#stop").on("click", function() {
-	console.log("stop was clicked");
-	die.pause();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//sending data to server
 
 var contact = $("#contact").val();
 
@@ -93,13 +29,10 @@ $.post( "http://localhost/reminder/reminder.php", {contact: contact}, function(d
 
 });
 
-
 });
 
 
-
-
-
+// switch alarm mode
 $("#date").on("click", function() {
 
 	console.log("date was clicked");
