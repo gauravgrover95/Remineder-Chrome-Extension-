@@ -2,9 +2,12 @@
 
 $("#set").on("click", function() {
 
+var delay = $("#delay-input").val();
+var title = $("#title").val();
+var desc = $("#desc").val();
 
-
-console.log("Hi Gaurav!!");
+// console.log("value of delay is: " + delay);
+// console.log(desc);
 
 	var die = document.createElement('audio');
         die.setAttribute('src', 'die.mp3');
@@ -12,7 +15,7 @@ console.log("Hi Gaurav!!");
 
 
 chrome.alarms.create("MyAlarm", {
-	"when": Date.now() + 5000
+	"when": Date.now() + (delay * 1000)
 });
 
 chrome.alarms.onAlarm.addListener(function( alarm ) {
@@ -27,8 +30,8 @@ chrome.alarms.onAlarm.addListener(function( alarm ) {
 
 	var options = {
 		type: "basic",
-		title: "My first popup with Chrome!",
-		message: "This is my messagee",
+		title: title,
+		message: desc,
 		iconUrl: "favicon.ico"
 	}
 
@@ -47,13 +50,6 @@ chrome.alarms.onAlarm.addListener(function( alarm ) {
 
 }
 
-
-	function stop("noti", 1) {
-
-		die.pause();
-	}
-
-chrome.notifications.onButtonClicked.addListener(stop);
 
 
 
@@ -99,3 +95,21 @@ $.post( "http://localhost/reminder/reminder.php", {contact: contact}, function(d
 
 
 });
+
+
+
+
+
+$("#date").on("click", function() {
+
+	console.log("date was clicked");
+	$(".date").show();
+	$(".delay").hide();
+});
+
+$("#delay").on("click", function() {
+	console.log("delay was clicked");
+	$(".delay").show();
+	$(".date").hide();	
+});
+

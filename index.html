@@ -5,11 +5,13 @@
 <link rel="stylesheet" type="text/css" href="materialize.css">
 <style type="text/css">
 
+	
+
 	h4 {
 		text-align: center;
 	}	
 	.container {
-		height: 430px;
+		height: 380px;
 		width: 300px;
 		margin-left: auto;
 		margin-right: auto;
@@ -22,6 +24,15 @@
 
 	.container h2 {
 		text-align: center;
+	}
+
+	#set {
+		text-align: center;
+		margin-left: 70px;
+	}
+
+	.date {
+		display: none;
 	}
 
 </style>
@@ -37,19 +48,36 @@
 
 <br>
    <div class="input-field col s6">
-	  <input id="contact" type="text" class="validate" placeholder = "Contact">
+	  <input id="title" type="text" class="validate" placeholder = "Title">
 	</div>
 <br>
-	Select a date:
-  <input type="date" class="datepicker">
-   Select a time:
-  <input type="time" name="usr_time">
-  Write a message:
-  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-  <a class="waves-effect waves-light btn" id="set">Add Reminder</a>
-  <a class="waves-effect waves-light btn" id="stop">Stop Reminder</a>
 
-</div>  <!--container end-->
+<button id="delay">By Delay</button>
+<button id="date">By Date</button>
+<hr>
+<div class="delay">
+	Select Delay:
+	<input type="text" id="delay-input">
+</div>
+
+
+<div class="date">
+Select a date:
+  <input type="date" class="datepicker">
+Select a time:
+  <input type="time" name="usr_time">
+</div>
+
+
+
+
+
+  Description:
+  <textarea id="desc" class="materialize-textarea"></textarea>
+
+
+  <a class="waves-effect waves-light btn" id="set">Add Reminder</a>
+ </div>  <!--container end-->
 </div>  <!--wrapper end-->
 
 
